@@ -1,7 +1,8 @@
 import angular from 'angular'
 import uirouter from 'angular-ui-router'
 import projects from './components/projects/projects'
-export default angular.module('app', [uirouter])
+import projectsData from './services/projects.service'
+export default angular.module('app', [uirouter, projectsData])
 .config(($stateProvider, $urlRouterProvider, $locationProvider) => {
    $locationProvider.hashPrefix('');
     $urlRouterProvider.otherwise('/');
@@ -19,3 +20,4 @@ export default angular.module('app', [uirouter])
     })
 })
 .controller('ProjectCTRL', projects)
+.name

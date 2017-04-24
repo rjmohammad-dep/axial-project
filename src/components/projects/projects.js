@@ -1,5 +1,9 @@
+
 export default class ProjectCTRL {
-   constructor () {
-    this.name = 'hi'
+   constructor (projectsData) {
+    this.project =  JSON.stringify(projectsData.projects)
+    this.name = 'hello'
   }
 }
+
+ProjectCTRL.$inject = ['projectsData']

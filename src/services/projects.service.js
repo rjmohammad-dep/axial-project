@@ -1,3 +1,4 @@
+import angular from 'angular';
 class Projects {
     constructor() {
         this.projects = [
@@ -13,3 +14,7 @@ class Projects {
         ];
     }
 }
+
+export default angular.module('service.projects', [])
+.service('projectsData', Projects)
+.name;
