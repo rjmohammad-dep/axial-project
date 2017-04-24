@@ -1,6 +1,11 @@
 
 <uib-accordion>
   <div  uib-accordion-group class="panel-default" heading="{{project.headline}}" ng-repeat="project in projects.project |filter: search track by $index">
-    
+    {{project.target_check_size_min}}
+    {{project.target_check_size_max}}
+    {{project.target_revenue_min}}
+    {{project.target_revenue_max}}
+    {{project.target_ebitda_min}}
+    {{project.target_ebitda_max}}
   </div>
 </uib-accordion>
