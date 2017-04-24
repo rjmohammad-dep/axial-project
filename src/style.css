@@ -18,5 +18,11 @@ md-card-title {
    background-color: mintcream;
  }
  .list {
-   padding: 10px 0 10px 0
+   padding: 5px 0 5px 0
  }
+ .ripplelink:hover {
+    z-index: 1000;
+    box-shadow: rgba(0, 0, 0, 0.8) 0 16px 16px 0;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 16px 16px 0;
+    -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 16px 16px 0;
+}

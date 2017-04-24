@@ -15,7 +15,7 @@ export default angular.module('app', [angularMaterial, uirouter, accordion, proj
         url: '/',
         template: require('./components/projects/projects.html'),
         controller: 'ProjectCTRL',
-        controllerAs: 'projects'
+        controllerAs: 'pro'
       }
     ]
     states.forEach((state) => {

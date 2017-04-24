@@ -66,7 +66,7 @@ class Projects {
                 target_ebitda_max: 10000000
             },
             {
-                headline: 'Funding Strategic Growth in the Restaurant Sector',
+                headline: 'Something',
                 target_check_size_min: 2000000,
                 target_check_size_max: 10000000,
                 target_revenue_min: 0,
@@ -76,6 +76,13 @@ class Projects {
             },
         ];
     }
+
+    removeProject (index) {
+        console.log(index)
+        this.projects = [...this.projects.slice(0,index), ...this.projects.slice(index+1)]
+        console.log(this.projects)
+    }
+
 }
 
 export default angular.module('service.projects', [])

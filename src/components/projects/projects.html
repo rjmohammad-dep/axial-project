@@ -1,7 +1,7 @@
 <section layout="column" layout-fill>
   <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="4" md-row-height-gt-md="1:1" md-row-height="2:2"
     md-gutter="12px" md-gutter-gt-sm="8px">
-    <md-grid-tile flex layout="row" class="flex-item ripplelink" ng-repeat="project in projects.project |filter: search track by $index">
+    <md-grid-tile flex layout="row" class="flex-item ripplelink" ng-repeat="project in pro.projects.projects |filter: search track by $index">
       <md-card>
         <md-card-title>
           <md-card-title-text>
@@ -9,13 +9,17 @@
           </md-card-title-text>
         </md-card-title>
         <md-card-content>
-          <div  class="list"><label>Check Size Min: </label> <input type="" name=""  disabled value="{{project.target_check_size_min}}"></div>
-          <div class="list"><label>Check Size Max:</label> <input type="" name=""  disabled value="{{project.target_check_size_max}}"></div>
-          <div class="list"><label>Revenue Min: </label> <input type="" name=""  disabled value="{{project.target_revenue_min}}"></div>
-          <div class="list"><label>Revenue Max: </label> <input type="" name=""  disabled value="{{project.target_revenue_max}}"></div>
-          <div class="list"><label>EBITDA Min: </label> <input type="" name=""  disabled value="{{project.target_ebitda_min}}"></div>
-          <div class="list"><label>EBITDA Max: </label> <input type="" name=""  disabled value="{{project.target_ebitda_max}}"></div> 
+          <div  class="list"><label>Check Size Min: </label> <input name=""  disabled value="{{project.target_check_size_min | number}}"></div>
+          <div class="list"><label>Check Size Max:</label> <input type="" name=""  disabled value="{{project.target_check_size_max | number}}"></div>
+          <div class="list"><label>Revenue Min: </label> <input type="" name=""  disabled value="{{project.target_revenue_min | number}}"></div>
+          <div class="list"><label>Revenue Max: </label> <input type="" name=""  disabled value="{{project.target_revenue_max | number}}"></div>
+          <div class="list"><label>EBITDA Min: </label> <input type="" name=""  disabled value="{{project.target_ebitda_min | number}}"></div>
+          <div class="list"><label>EBITDA Max: </label> <input type="" name=""  disabled value="{{project.target_ebitda_max | number}}"></div> 
         </md-card-content>
+         <md-card-actions layout="row" layout-align="end center">
+          <md-button  ng-click="pro.projects.removeProject($index)"class="md-raised md-warn">Delete</md-button>
+          <md-button class="md-raised">Edit</md-button>
+        </md-card-actions>
       </md-card>
     </md-grid-tile>
   </md-grid-list>
