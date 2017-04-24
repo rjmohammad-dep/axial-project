@@ -4,8 +4,8 @@ module.exports = {
   context: __dirname,
   entry: ['whatwg-fetch', './src/app.js'],
   output: {
-    path: path.join(__dirname, '/src'),
-    publicPath: '/src/bundle',
+    path: path.join(__dirname, '/src/'),
+    publicPath: '/src/',
     filename: 'bundle.js'
   },
   devtool: '#eval-source-map',
@@ -13,7 +13,7 @@ module.exports = {
     publicPath: '/src/',
     open: true,
     historyApiFallback: true,
-    contentBase: './index'
+    contentBase: './src'
   },
   resolve: {
     extensions: ['.js', '.css']

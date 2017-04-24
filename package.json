@@ -3,11 +3,19 @@
   "version": "1.0.0",
   "description": "Axial Projects Lite (a code exercise)",
   "scripts": {
+    "start-dev": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Axial",
   "license": "MIT",
   "dependencies": {
-    "angular": "^1.6.4"
+    "angular": "^1.6.4",
+    "babel": "^6.23.0",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.4",
+    "whatwg-fetch": "^2.0.3"
   }
 }
