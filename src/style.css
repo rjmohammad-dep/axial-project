@@ -1,0 +1,22 @@
+* {
+  display: border-box;
+  font-family: 'Raleway'
+}
+ md-card {
+    width: 100%;
+    height: 100%
+}
+input[disabled] {
+  text-align: center;
+  float: right;
+}
+
+md-card-title {
+  background-color: cornflowerblue;
+}
+ md-card-content {
+   background-color: mintcream;
+ }
+ .list {
+   padding: 10px 0 10px 0
+ }
