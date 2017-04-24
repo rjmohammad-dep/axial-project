@@ -4,7 +4,8 @@ import 'angular-material/angular-material.css';
 import angularMaterial from 'angular-material';
 import projects from './components/projects/projects'
 import projectsData from './services/projects.service'
-export default angular.module('app', [angularMaterial, uirouter, projectsData])
+import accordion from 'angular-ui-bootstrap/src/accordion';
+export default angular.module('app', [angularMaterial, uirouter, accordion, projectsData])
 .config(($stateProvider, $urlRouterProvider, $locationProvider) => {
    $locationProvider.hashPrefix('');
     $urlRouterProvider.otherwise('/');
