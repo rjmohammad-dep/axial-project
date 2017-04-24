@@ -1,8 +1,10 @@
 import angular from 'angular'
 import uirouter from 'angular-ui-router'
+import 'angular-material/angular-material.css';
+import angularMaterial from 'angular-material';
 import projects from './components/projects/projects'
 import projectsData from './services/projects.service'
-export default angular.module('app', [uirouter, projectsData])
+export default angular.module('app', [angularMaterial, uirouter, projectsData])
 .config(($stateProvider, $urlRouterProvider, $locationProvider) => {
    $locationProvider.hashPrefix('');
     $urlRouterProvider.otherwise('/');
