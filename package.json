@@ -1,0 +1,13 @@
+{
+  "name": "axl-projects-lite",
+  "version": "1.0.0",
+  "description": "Axial Projects Lite (a code exercise)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Axial",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.6.4"
+  }
+}
