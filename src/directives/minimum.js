@@ -5,6 +5,7 @@ export default class minimum {
       this.require = 'ngModel'
       this.link = function (scope, element, attrs, ngModel)  {
          ngModel.$validators.minim = () => {
+            // var data = element.val().split(',').join('')
            if(attrs.min > Number(element.val())) {
              return false
            }
@@ -18,7 +19,8 @@ export default class minimum {
          }
 
           ngModel.$validators.nums = () => {
-           if(element.val() % 1 === 0) {
+            var data = element.val().split(',').join('')
+           if(data % 1 === 0 || data[1] === 'k' || data[1] === 'K' || data[1] === 'm' || data[1] === 'M' ) {
              return true
            }
            return false

@@ -33,5 +33,27 @@ export default angular.module('app', [ngMaterial, ngAnimate, ngAria, uirouter, p
       .accentPalette('green');
   })
   .directive('convertor', () => new convertor())
-  .directive('filter',() => new filter())
+  .directive('filter', () => new filter())
   .directive('minimum', () => new minimum())
+  .directive('format', ['$filter', function ($filter) {
+    //Does formats the numbers but causes issues with number convertor 'k' and 'm'
+    return {
+      require: 'ngModel',
+      link: function (scope, elem, attrs, ngModel) {
+        if (!ngModel) {
+          return;
+        }
+        if(ngModel.$modelValue.length > 3) {
+        ngModel.$formatters.unshift(function (a) {
+          return $filter('number')(ngModel.$modelValue)
+        });
+        }
+
+        ngModel.$parsers.unshift(function (viewValue) {
+          var plainNumber = viewValue.replace(/[^\d|\-+|\.+]/g, '');
+          elem.val($filter('number')(plainNumber));
+          return plainNumber;
+        });
+      }
+    }
+  }])

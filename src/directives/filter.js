@@ -7,10 +7,10 @@ export default class filter {
       this.filter = $filter,
       this.require = 'ngModel'
     this.link = (scope, element, attrs, ngModel, $filter) => {
-        element.val().replace(/,/g, '');
-        element.val(this.filter('number')(value, false));
-        ngModel.$setViewValue();
-        ngModel.$render();
+        // element.val().replace(/,/g, '');
+        // element.val(this.filter('number')(value, false));
+        // ngModel.$setViewValue();
+        // ngModel.$render();
     }
   }
 
