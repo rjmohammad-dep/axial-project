@@ -1,12 +1,15 @@
 import angular from 'angular'
 import uirouter from 'angular-ui-router'
 import 'angular-material/angular-material.css';
-import angularMaterial from 'angular-material';
-import projects from './components/projects/projects'
-import projectsData from './services/projects.service'
+import ngMaterial from 'angular-material';
+import ngAnimate from 'angular-animate';
+import ngMessage from 'angular-messages';
+import ngAria from 'angular-aria';
+import projects from './components/projects/projects';
+import projectsData from './services/projects.service';
 import accordion from 'angular-ui-bootstrap/src/accordion';
-export default angular.module('app', [angularMaterial, uirouter, accordion, projectsData])
-.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
+export default angular.module('app', [ngMaterial, ngAnimate, ngAria, ngMessage, uirouter, accordion, projectsData, projects])
+.config(($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider) => {
    $locationProvider.hashPrefix('');
     $urlRouterProvider.otherwise('/');
     let states = [
@@ -17,10 +20,13 @@ export default angular.module('app', [angularMaterial, uirouter, accordion, proj
         controller: 'ProjectCTRL',
         controllerAs: 'pro'
       }
-    ]
+    ];
     states.forEach((state) => {
       $stateProvider.state(state)
-    })
+    });
+     $mdThemingProvider.theme('default')
+      .primaryPalette('grey')
+      .accentPalette('pink');
 })
-.controller('ProjectCTRL', projects)
-.name
+// .controller('ProjectCTRL', projects)
+// .name
