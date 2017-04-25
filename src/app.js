@@ -33,5 +33,5 @@ export default angular.module('app', [ngMaterial, ngAnimate, ngAria, uirouter, p
       .accentPalette('green');
   })
   .directive('convertor', () => new convertor())
-  .directive('filter', () => new filter())
+  .directive('filter',() => new filter())
   .directive('minimum', () => new minimum())
