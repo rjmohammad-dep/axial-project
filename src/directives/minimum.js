@@ -4,15 +4,6 @@ export default class minimum {
       this.scope = false,
       this.require = 'ngModel'
       this.link = function (scope, element, attrs, ngModel)  {
-        // ngModel.$parsers.unshift((viewValue) => {
-        //   if(attrs.min > attrs.value) {
-        //     ngModel.$setValidity('minim', false)
-        //     return undefined
-        //   } else {
-        //      ngModel.$setValidity('minim', true)
-        //     return true
-        //   }
-        // })
          ngModel.$validators.minim = () => {
            if(attrs.min > Number(element.val())) {
              return false
