@@ -10,7 +10,7 @@ class ProjectCTRL {
       parent: angular.element(document.body),
       clickOutsideToClose: true,
       fullscreen: false,
-      controller: ($scope) => {
+      controller: ($scope, $mdDialog) => {
          let { headline, target_check_size_min, target_check_size_max, target_revenue_min, target_revenue_max, target_ebitda_min, target_ebitda_max } = this.projects.projects[index]
         $scope.headline = headline
         $scope.checkMin = target_check_size_min
@@ -19,6 +19,9 @@ class ProjectCTRL {
         $scope.revenueMax = target_revenue_max
         $scope.ebitdaMin = target_ebitda_min
         $scope.ebitdaMax = target_ebitda_max
+        $scope.save = function () {
+          
+        }
       }
     })
   }
