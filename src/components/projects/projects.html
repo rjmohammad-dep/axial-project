@@ -1,11 +1,14 @@
 <md-content class="md-padding nav">
-<md-nav-bar>
+<md-nav-bar layout-align="space-between">
 <md-content class='logo'>Axial</md-content>
+<div  id="add">
 <md-button ng-click="pro.addProject()" class="md-primary md-raised" md-ripple-size="full" aria-label="button-label"> Add </md-button>
-<!--<md-input-container class="search" >
+
+</div>
+<md-input-container class="search" >
   <label>Search</label>
   <input type="text" ng-model="search" name="" value="">
-</md-input-container>-->
+</md-input-container>
 </md-nav-bar>
 </md-content>
 <section layout="column" layout-fill>
@@ -27,7 +30,7 @@
           <div class="list"><label>EBITDA Min: </label> <input type="" name="" disabled value="{{project.target_ebitda_min | number}}"></div>
           <div class="list"><label>EBITDA Max: </label> <input type="" name="" disabled value="{{project.target_ebitda_max | number}}"></div>
         </md-card-content>
-        <md-card-actions layout="row" layout>
+        <md-card-actions layout="row" layout-align="space-between">
           <md-button ng-click="pro.projects.removeProject($index)" class="md-raised">Delete</md-button>
           <md-button ng-click="pro.editProject($index)" class="md-raised md-primary">Edit</md-button>
         </md-card-actions>

@@ -13,6 +13,10 @@ input[disabled] {
   float: right;
 }
 
+input{
+  text-align: center
+}
+
 md-card-title {
   background-color: cornflowerblue;
 }
@@ -50,8 +54,12 @@ md-nav-bar {
 }
 
 .nav {
-  background-color: indigo;
+  /*background-color: indigo;*/
     width: 100%;
     HEIGHT: 6%;
     margin-bottom: 2%;
+}
+
+#add {
+  margin: 0 auto;
 }
