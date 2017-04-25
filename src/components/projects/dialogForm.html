@@ -1,0 +1,40 @@
+<md-content layout-padding class='form'>
+  <form>
+    <md-input-container class="md-block">
+       <label>Project</label>
+       <input placeholder="Headline" type="Text" name="headline" value="{{headline}}">
+    </md-input-container>
+    <md-content layout-padding>
+      <div>
+        <md-input-container >
+           <input placeholder="Check Size Min" type="" name="" value="{{checkMin | number}}">
+        </md-input-container>
+        <md-input-container>
+                     <input placeholder="Check Size Max" type="" name="" value="{{checkMax | number}}">
+        </md-input-container>
+      </div>
+      <div>
+        <md-input-container >
+           <input placeholder="Revenue Min" type="" name="" value="{{revenueMin | number}}">
+        </md-input-container>
+        <md-input-container>
+                     <input placeholder="Revenue Max" type="" name="" value="{{revenueMax | number}}">
+        </md-input-container>
+      </div>
+      <div>
+        <md-input-container >
+           <input placeholder="EBITDA Min" type="" name="" value="{{ebitdaMin | number}}">
+        </md-input-container>
+        <md-input-container>
+                     <input placeholder="EBITDA Max" type="" name="" value="{{ ebitdaMin | number }}">
+        </md-input-container>
+      </div>
+    </md-content>
+  </form>
+  <md-button 
+             id="button-id"
+             class="md-primary"
+             md-ripple-size="full"
+             md-no-ink="true"
+             aria-label="button-label"> Save </md-button>
+</md-content>
