@@ -18,12 +18,15 @@ export default class minimum {
         //   }
         // })
          ngModel.$validators.minim = () => {
-           console.log('inside valid')
-           console.log(attrs.min, element.val())
            if(attrs.min > Number(element.val())) {
              return false
            }
-           console.log('way pass')
+           return true
+         }
+         ngModel.$validators.maxi = () => {
+           if(attrs.max < Number(element.val())) {
+             return false
+           }
            return true
          }
       }
