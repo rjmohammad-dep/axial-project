@@ -17,7 +17,7 @@
     <md-content layout-padding>
       <div>
         <md-input-container>
-          <input placeholder="Check Size Min" minimum type="" filter name="checkMin" convertor value="{{checkMin}}" ng-model="checkMin" onChange={{checkMin}} con="checkMin"
+          <input placeholder="Check Size Min" minimum type=""  ng-required="!(!checkMin.length && !checkMax)" name="checkMin" convertor value="{{checkMin}}" ng-model="checkMin" onChange={{checkMin}} con="checkMin"
             max="{{checkMax}}">
           <div ng-messages="projectForm.checkMin.$error" multiple>
             <div ng-message="maxi">
@@ -29,7 +29,7 @@
           </div>
         </md-input-container>
         <md-input-container>
-          <input placeholder="Check Size Max" convertor minimum type="" name="checkMax" value="{{checkMax}}" onChange={{checkMax}}
+          <input placeholder="Check Size Max" convertor minimum type="" ng-required="!(!checkMin.length && !checkMax)" name="checkMax" value="{{checkMax}}" onChange={{checkMax}}
             ng-model="checkMax" min="{{checkMin}}" con="checkMax">
           <div ng-messages="projectForm.checkMax.$error" multiple>
             <div ng-message="minim">
@@ -43,7 +43,7 @@
       </div>
       <div>
         <md-input-container>
-          <input placeholder="Revenue Min" convertor minimum type="" name="revenueMin" value="{{revenueMin}}" onChange={{revenueMin}}
+          <input placeholder="Revenue Min" convertor minimum type="" name="revenueMin" ng-required="!(!revenueMin.length && !revenueMax)" value="{{revenueMin}}" onChange={{revenueMin}}
             ng-model="revenueMin" con="revenueMin" max={{revenueMax}}>
           <div ng-messages="projectForm.revenueMin.$error" multiple>
             <div ng-message="maxi">
@@ -55,7 +55,7 @@
           </div>
         </md-input-container>
         <md-input-container>
-          <input placeholder="Revenue Max" convertor minimum type="" minimum name="revenueMax" value="{{revenueMax}}" onChange={{revenueMax}}
+          <input placeholder="Revenue Max" convertor minimum type="" minimum name="revenueMax" ng-required="!(!revenueMin.length && !revenueMax)" value="{{revenueMax}}" onChange={{revenueMax}}
             ng-model="revenueMax" min="{{revenueMin}}" con="revenueMax">
           <div ng-messages="projectForm.revenueMax.$error" multiple>
             <div ng-message="minim">
@@ -69,7 +69,7 @@
       </div>
       <div>
         <md-input-container>
-          <input placeholder="EBITDA Min" convertor minimum type="" name="ebitdaMin" value="{{ebitdaMin}}" onChange={{ebitdaMin}} ng-model="ebitdaMin"
+          <input placeholder="EBITDA Min" convertor minimum type="" name="ebitdaMin" value="{{ebitdaMin}}" ng-required="!(!ebitdaMin.length && !ebitdaMax)" onChange={{ebitdaMin}} ng-model="ebitdaMin"
             con="ebitdaMin" max="{{ebitdaMax}}">
           <div ng-messages="projectForm.ebitdaMin.$error" multiple>
             <div ng-message="maxi">
@@ -81,7 +81,7 @@
           </div>
         </md-input-container>
         <md-input-container>
-          <input placeholder="EBITDA Max" convertor minimum type="" name="ebitdaMax" value="{{ebitdaMax}}" onChange={{ebitdaMax}} ng-model="ebitdaMax"
+          <input placeholder="EBITDA Max" convertor minimum type="" name="ebitdaMax" value="{{ebitdaMax}}" ng-required="!(!ebitdaMin.length && !ebitdaMax)" onChange={{ebitdaMax}} ng-model="ebitdaMax"
             min="{{ebitdaMin}}" con="ebitdaMax">
           <div ng-messages="projectForm.ebitdaMax.$error" multiple>
             <div ng-message="minim">
