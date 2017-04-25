@@ -1,3 +1,4 @@
+
 class ProjectCTRL {
   constructor(projectsData, $mdDialog, $mdSidenav) {
     this.projects = projectsData
@@ -60,7 +61,7 @@ class ProjectCTRL {
             target_ebitda_min: $scope.ebitdaMin,
             target_ebitda_max: $scope.ebitdaMax,
           };
-          this.projects.update(obj);
+          this.projects.add(obj);
           $mdDialog.hide();
         }
       }

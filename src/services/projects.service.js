@@ -77,16 +77,20 @@ class Projects {
         ];
     }
 
-    removeProject (index) {
-        this.projects = [...this.projects.slice(0,index), ...this.projects.slice(index+1)];
+    removeProject(index) {
+        this.projects = [...this.projects.slice(0, index), ...this.projects.slice(index + 1)];
     }
 
-    update (obj) {
-         this.projects = [obj, ...this.projects];
+    update(obj, index) {
+        this.projects = [...this.projects.slice(0, index), obj, ...this.projects.slice(index + 1)];;
+    }
+
+    add(obj) {
+        this.projects = [obj, ...this.projects];
     }
 
 }
 
 export default angular.module('service.projects', [])
-.service('projectsData', Projects)
-.name;
+    .service('projectsData', Projects)
+    .name;
