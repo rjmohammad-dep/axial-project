@@ -29,6 +29,13 @@ export default class minimum {
            }
            return true
          }
+
+          ngModel.$validators.nums = () => {
+           if(element.val() % 1 === 0) {
+             return true
+           }
+           return false
+         }
       }
   }
   
