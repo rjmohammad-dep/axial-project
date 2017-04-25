@@ -30,7 +30,7 @@ export default angular.module('app', [ngMaterial, ngAnimate, ngAria, uirouter, p
     });
     $mdThemingProvider.theme('default')
       .primaryPalette('grey')
-      .accentPalette('pink');
+      .accentPalette('green');
   })
   .directive('convertor', () => new convertor())
   .directive('filter', () => new filter())

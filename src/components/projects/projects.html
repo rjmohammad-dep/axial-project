@@ -2,13 +2,17 @@
 <md-nav-bar>
 <md-content class='logo'>Axial</md-content>
 <md-button ng-click="pro.addProject()" class="md-primary md-raised" md-ripple-size="full" aria-label="button-label"> Add </md-button>
+<!--<md-input-container class="search" >
+  <label>Search</label>
+  <input type="text" ng-model="search" name="" value="">
+</md-input-container>-->
 </md-nav-bar>
 </md-content>
 <section layout="column" layout-fill>
   <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="4" md-row-height-gt-md="1:1" md-row-height="2:2"
     md-gutter="12px" md-gutter-gt-sm="8px">
-    <md-grid-tile flex layout="row" class="flex-item ripplelink" ng-repeat="project in pro.projects.projects |filter: search track by $index"
-      md-whiteframe="3">
+    <md-grid-tile flex layout="row" class="flex-item ripplelink" ng-repeat="project in pro.projects.projects |filter:search"
+      md-whiteframe="4">
       <md-card>
         <md-card-title>
           <md-card-title-text>
@@ -23,9 +27,9 @@
           <div class="list"><label>EBITDA Min: </label> <input type="" name="" disabled value="{{project.target_ebitda_min | number}}"></div>
           <div class="list"><label>EBITDA Max: </label> <input type="" name="" disabled value="{{project.target_ebitda_max | number}}"></div>
         </md-card-content>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button ng-click="pro.projects.removeProject($index)" class="md-raised md-warn">Delete</md-button>
-          <md-button ng-click="pro.editProject($index)" class="md-raised">Edit</md-button>
+        <md-card-actions layout="row" layout>
+          <md-button ng-click="pro.projects.removeProject($index)" class="md-raised">Delete</md-button>
+          <md-button ng-click="pro.editProject($index)" class="md-raised md-primary">Edit</md-button>
         </md-card-actions>
       </md-card>
     </md-grid-tile>

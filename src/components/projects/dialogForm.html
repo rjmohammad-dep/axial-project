@@ -7,7 +7,12 @@
   <form name="projectForm">
     <md-input-container class="md-block">
       <label>Project</label>
-      <input placeholder="Headline" type="Text" name="headline" value="{{headline}}" ng-model="headline">
+      <input placeholder="Headline" type="Text" name="headline" value="{{headline}}" ng-model="headline" required>
+       <div ng-messages="projectForm.headline.$error">
+            <div ng-message="required">
+              Required
+            </div>
+       </div>
     </md-input-container>
     <md-content layout-padding>
       <div>
@@ -90,6 +95,6 @@
       </div>
     </md-content>
   </form>
-  <md-button ng-click="save()" id="button-id" class="md-primary md-raised" md-ripple-size="full" md-no-ink="true" aria-label="button-label">
+  <md-button ng-click="save()" ng-disabled="projectForm.$invalid" id="button-id" class="md-primary md-raised" md-ripple-size="full" md-no-ink="true" aria-label="button-label">
     Save </md-button>
 </md-content>
