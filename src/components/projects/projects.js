@@ -1,4 +1,4 @@
-
+import ngMessage from 'angular-messages';
 class ProjectCTRL {
   constructor(projectsData, $mdDialog, $mdSidenav) {
     this.projects = projectsData
@@ -44,13 +44,13 @@ class ProjectCTRL {
       clickOutsideToClose: true,
       fullscreen: false,
       controller: ($scope, $mdDialog) => {
-        $scope.headline;
-        $scope.checkMin;
-        $scope.checkMax;
-        $scope.revenueMin;
-        $scope.revenueMax;
-        $scope.ebitdaMin;
-        $scope.ebitdaMax;
+        $scope.headline = '';
+        $scope.checkMin = 0;
+        $scope.checkMax = 0;
+        $scope.revenueMin = 0;
+        $scope.revenueMax = 0;
+        $scope.ebitdaMin = 0;
+        $scope.ebitdaMax = 0;
         $scope.save = () => {
           let obj = {
             headline: $scope.headline,
@@ -70,6 +70,6 @@ class ProjectCTRL {
 }
 ProjectCTRL.$inject = ['projectsData', '$mdDialog']
 
-export default angular.module('ProjectCTRL', [])
+export default angular.module('ProjectCTRL', [ngMessage])
   .controller('ProjectCTRL', ProjectCTRL)
   .name

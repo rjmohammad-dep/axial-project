@@ -1,5 +1,5 @@
 <md-content layout-padding class='form'>
-  <form>
+  <form name="projectForm">
     <md-input-container class="md-block">
       <label>Project</label>
       <input placeholder="Headline" type="Text" name="headline" value="{{headline}}" ng-model="headline">
@@ -7,30 +7,45 @@
     <md-content layout-padding>
       <div>
         <md-input-container>
-          <input placeholder="Check Size Min" type="" name="" convertor  ng-model="checkMin">
+          <input placeholder="Check Size Min" type="" name="checkMin" convertor ng-model="checkMin"  con="checkMin">
         </md-input-container>
         <md-input-container>
-          <input placeholder="Check Size Max" convertor type="" name="" value="{{checkMax | number}}" ng-model="checkMax">
-        </md-input-container>
-      </div>
-      <div>
-        <md-input-container>
-          <input placeholder="Revenue Min" convertor type="" name="" value="{{revenueMin | number}}" ng-model="revenueMin">
-        </md-input-container>
-        <md-input-container>
-          <input placeholder="Revenue Max"  convertor type="" name="" value="{{revenueMax | number}}" ng-model="revenueMax">
+          <input placeholder="Check Size Max" convertor minimum  type="" name="checkMax" value="{{checkMax}}" ng-model="checkMax" min="{{checkMin}}" con="checkMax">
+          <div ng-messages="projectForm.checkMax.$error" >
+            <div ng-message="minim">
+              Input should be greater than Check Min
+            </div>
+          </div>
         </md-input-container>
       </div>
       <div>
         <md-input-container>
-          <input placeholder="EBITDA Min" convertor type="" name="" value="{{ebitdaMin | number}}" ng-model="ebitdaMin">
-          </md-input-container>
-          <md-input-container>
-            <input placeholder="EBITDA Max" convertor type="" name="" value="{{ ebitdaMax | number }}" ng-model="ebitdaMax">
-          </md-input-container>
-        </div>
+          <input placeholder="Revenue Min" convertor type="" name="revenueMin" value="{{revenueMin}}" ng-model="revenueMin" con="revenueMin">
+        </md-input-container>
+        <md-input-container>
+          <input placeholder="Revenue Max" convertor type="" minimum name="revenueMax" value="{{revenueMax}}" ng-model="revenueMax"  min="{{revenueMin}}" con="revenueMax">
+       <div ng-messages="projectForm.revenueMax.$error" >
+            <div ng-message="minim">
+              Input should be greater than Check Min
+            </div>
+          </div>
+        </md-input-container>
+      </div>
+      <div>
+        <md-input-container>
+          <input placeholder="EBITDA Min" convertor type="" name="" value="{{ebitdaMin}}" ng-model="ebitdaMin" con="ebitdaMin">
+        </md-input-container>
+        <md-input-container>
+          <input placeholder="EBITDA Max" convertor minimum type="" name="ebitdaMax" value="{{ ebitdaMax }}" ng-model="ebitdaMax"  min="{{ebitdaMin}}" con="ebitdaMax">
+       <div ng-messages="projectForm.ebitdaMax.$error" >
+            <div ng-message="minim">
+              Input should be greater than Check Min
+            </div>
+          </div>
+        </md-input-container>
+      </div>
     </md-content>
   </form>
   <md-button ng-click="save()" id="button-id" class="md-primary" md-ripple-size="full" md-no-ink="true" aria-label="button-label">
-  Save </md-button>
+    Save </md-button>
 </md-content>

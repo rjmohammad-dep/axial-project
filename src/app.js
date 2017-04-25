@@ -3,13 +3,16 @@ import uirouter from 'angular-ui-router';
 import 'angular-material/angular-material.css';
 import ngMaterial from 'angular-material';
 import ngAnimate from 'angular-animate';
-import ngMessage from 'angular-messages';
+import ngMessages from 'angular-messages';
+import 'angular-touch';
 import ngAria from 'angular-aria';
 import projects from './components/projects/projects';
 import projectsData from './services/projects.service';
-import accordion from 'angular-ui-bootstrap/src/accordion';
 import convertor from './directives/convertor'
-export default angular.module('app', [ngMaterial, ngAnimate, ngAria, ngMessage, uirouter, accordion, projectsData, projects])
+import filter from './directives/filter'
+import minimum from './directives/minimum'
+
+export default angular.module('app', [ngMaterial, ngAnimate, ngAria, uirouter, projectsData, projects, ngMessages])
   .config(($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider) => {
     $locationProvider.hashPrefix('');
     $urlRouterProvider.otherwise('/');
@@ -30,3 +33,5 @@ export default angular.module('app', [ngMaterial, ngAnimate, ngAria, ngMessage, 
       .accentPalette('pink');
   })
   .directive('convertor', () => new convertor())
+  .directive('filter', () => new filter())
+  .directive('minimum', () => new minimum())
