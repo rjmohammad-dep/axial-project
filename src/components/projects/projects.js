@@ -37,7 +37,6 @@ class ProjectCTRL {
     })
   }
   addProject() {
-    console.log('here')
     this.$mdDialog.show({
       template: require('./dialogForm.html'),
       parent: angular.element(document.body),

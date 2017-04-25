@@ -1,6 +1,5 @@
 export default class convertor {
   constructor() {
-    console.log('here')
     this.restrict = 'A',
       this.scope = {
         con: '='
@@ -10,7 +9,6 @@ export default class convertor {
       scope.$watch('con', (val) => {
         if (val) {
           if (val.length >= 2 && val[1] === 'k' || val[1] === 'K') {
-            console.log('here')
             var value = val[0] * 1000
             attr.$modelValue = value;
             attr.value = value
