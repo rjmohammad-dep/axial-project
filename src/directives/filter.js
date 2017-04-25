@@ -1,22 +1,20 @@
 export default class filter {
-  constructor($filter) {
+  constructor() {
     this.restrict = 'A',
-      this.scope = false,
+      this.scope = {
+        onChange: '='
+      },
       this.require = 'ngModel'
-      this.link = (scope, element, attrs, ngModel, $filter) => {
-        console.log($filter)
-        element.bind('keyup', () => {
-
-        })
-        scope.$watch(attrs.ngModel, (v) => {
-          console.log(element.val)
-          element.val().replace(/,/g, '')
-            element.val($filter('number')(value, false))
-         ngModel.$setViewValue();
-         ngModel.$render(); 
-        })
-      }
+    this.link = (scope, element, attrs, ngModel) => {
+      scope.$watch('onChange', (v) => {
+        console.log(element.val);
+        element.val().replace(/,/g, '');
+        element.val($filter('number')(value, false));
+        ngModel.$setViewValue();
+        ngModel.$render();
+      })
+    }
   }
-  
+
 }
-filter.$inject = ['$filter']
+filter.$inject = [];

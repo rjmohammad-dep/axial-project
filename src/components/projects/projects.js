@@ -43,13 +43,13 @@ class ProjectCTRL {
       clickOutsideToClose: true,
       fullscreen: false,
       controller: ($scope, $mdDialog) => {
-        $scope.headline = '';
-        $scope.checkMin = 0;
-        $scope.checkMax = 0;
-        $scope.revenueMin = 0;
-        $scope.revenueMax = 0;
-        $scope.ebitdaMin = 0;
-        $scope.ebitdaMax = 0;
+        $scope.headline;
+        $scope.checkMin;
+        $scope.checkMax;
+        $scope.revenueMin;
+        $scope.revenueMax;
+        $scope.ebitdaMin;
+        $scope.ebitdaMax;
         $scope.save = () => {
           let obj = {
             headline: $scope.headline,
@@ -67,7 +67,7 @@ class ProjectCTRL {
     })
   }
 }
-ProjectCTRL.$inject = ['projectsData', '$mdDialog']
+ProjectCTRL.$inject = ['projectsData', '$mdDialog'];
 
 export default angular.module('ProjectCTRL', [ngMessage])
   .controller('ProjectCTRL', ProjectCTRL)

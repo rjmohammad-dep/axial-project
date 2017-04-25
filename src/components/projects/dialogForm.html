@@ -17,7 +17,7 @@
     <md-content layout-padding>
       <div>
         <md-input-container>
-          <input placeholder="Check Size Min" minimum type="" name="checkMin" convertor ng-model="checkMin" onChange={{checkMin}} con="checkMin"
+          <input placeholder="Check Size Min" minimum type="" name="checkMin" convertor value="{{checkMin}}" ng-model="checkMin" onChange={{checkMin}} con="checkMin"
             max="{{checkMax}}">
           <div ng-messages="projectForm.checkMin.$error" multiple>
             <div ng-message="maxi">
