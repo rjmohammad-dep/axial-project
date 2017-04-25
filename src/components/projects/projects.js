@@ -36,6 +36,7 @@ class ProjectCTRL {
     })
   }
   addProject() {
+    console.log('here')
     this.$mdDialog.show({
       template: require('./dialogForm.html'),
       parent: angular.element(document.body),
@@ -59,7 +60,7 @@ class ProjectCTRL {
             target_ebitda_min: $scope.ebitdaMin,
             target_ebitda_max: $scope.ebitdaMax,
           };
-          this.projects.add(obj);
+          this.projects.update(obj);
           $mdDialog.hide();
         }
       }

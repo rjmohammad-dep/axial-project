@@ -81,8 +81,8 @@ class Projects {
         this.projects = [...this.projects.slice(0,index), ...this.projects.slice(index+1)];
     }
 
-    update (obj, index) {
-         this.projects = [...this.projects.slice(0,index),obj, ...this.projects.slice(index+1)];
+    update (obj) {
+         this.projects = [obj, ...this.projects];
     }
 
 }
