@@ -1,18 +1,17 @@
 export default class filter {
-  constructor($scope) {
-     /*@ngInject*/
-    
+  constructor($filter) {
     this.restrict = 'A',
-      this.scope = false,
-      this.filter = $filter,
-      this.require = 'ngModel'
-    this.link = (scope, element, attrs, ngModel, $filter) => {
-        // element.val().replace(/,/g, '');
-        // element.val(this.filter('number')(value, false));
-        // ngModel.$setViewValue();
-        // ngModel.$render();
+    this.scope = false,
+    this.require = 'ngModel'
+    this.link = (scope, element, attrs, ngModel) => {
+
+      var value = ngModel.$viewValue
+      console.log(value)
+      // console.log(val)
+      // ngModel.$setViewValue();
+      ngModel.$render(element.val($filter('number')(value, false)));
     }
   }
 
 }
-filter.$inject = ['$http', '$filter'];
+// filter.$inject = ['$filter'];
