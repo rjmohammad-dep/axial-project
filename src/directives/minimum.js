@@ -20,7 +20,8 @@ export default class minimum {
 
       ngModel.$validators.nums = () => {
         var data = element.val().split(',').join('')
-        if (data % 1 === 0 || data[1] === 'k' || data[1] === 'K' || data[1] === 'm' || data[1] === 'M') {
+        var index = data.length - 1
+        if (data % 1 === 0 || data[index] === 'k' || data[index] === 'K' || data[index] === 'm' || data[index] === 'M') {
           return true
         }
         return false

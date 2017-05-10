@@ -7,15 +7,20 @@ export default class convertor {
     this.require = 'ngModel'
     this.link = (scope, element, attr, ngModel) => {
       scope.$watch('con', (val) => {
+        console.log(val)
         if (val) {
-          if (val.length >= 2 && val[1] === 'k' || val[1] === 'K') {
-            var value = val[0] * 1000
+        var index = val.length - 1 
+          if (val.length >= 2 && (val[index] === 'k' || val[index] === 'K')) {
+            val = val.split('').slice(0,index).join('')
+            var value =  val * 1000
+            console.log(value)
             attr.$modelValue = value;
             attr.value = value
             scope.con = value;
           }
-          if (val.length >= 2 && val[1] === 'm' || val[1] === 'M') {
-            var value = val[0] * 100000
+          if (val.length >= 2 && val[index] === 'm' || val[index] === 'M') {
+            val = val.split('').slice(0,index).join('')
+            var value = val * 100000
             attr.$modelValue = value;
             attr.value = value
             scope.con = value;
