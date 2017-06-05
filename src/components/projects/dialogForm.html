@@ -29,7 +29,7 @@
           </div>
         </md-input-container>
         <md-input-container>
-          <input placeholder="Check Size Max" convertor minimum type="" ng-required="!(!checkMin.length && !checkMax)" name="checkMax" value="{{checkMax}}" onChange={{checkMax}}
+          <input placeholder="Check Size Max" convertor minimum filter type="" ng-required="!(!checkMin.length && !checkMax)" name="checkMax" value="{{checkMax}}" onChange={{checkMax}}
             ng-model="checkMax" min="{{checkMin}}" con="checkMax">
           <div ng-messages="projectForm.checkMax.$error" multiple>
             <div ng-message="minim">

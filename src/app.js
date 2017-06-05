@@ -11,6 +11,7 @@ import projectsData from './services/projects.service';
 import convertor from './directives/convertor'
 import filter from './directives/filter'
 import minimum from './directives/minimum'
+import { convertNums } from './filter/convertNums'
 
 export default angular.module('app', [ngMaterial, ngAnimate, ngAria, uirouter, projectsData, projects, ngMessages])
   .config(($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider) => {
@@ -32,30 +33,47 @@ export default angular.module('app', [ngMaterial, ngAnimate, ngAria, uirouter, p
       .primaryPalette('grey')
       .accentPalette('green');
   })
+  .filter('convert', () => {
+      return (val) => {
+        console.log(value)
+    var value = val
+      if (val.length >= 2 && (val[index] === 'k' || val[index] === 'K')) {
+            val = val.split('').slice(0,index).join('')
+            value =  val * 1000
+            return value
+      }
+        if (val.length >= 2 && val[index] === 'm' || val[index] === 'M') {
+            val = val.split('').slice(0,index).join('')
+            value = val * 100000
+            return value
+        }
+        return value
+  }
+  })
   .directive('convertor', () => new convertor())
-  .directive('filter', ['$filter', function($filter) {
+  .directive('filter', ['$filter', 'convert', function($filter, convert) {
     return new filter ($filter)
   }])
   .directive('minimum', () => new minimum())
-  .directive('format', ['$filter', function ($filter) {
-    //Does formats the numbers but causes issues with number convertor 'k' and 'm'
-    return {
-      require: 'ngModel',
-      link: function (scope, elem, attrs, ngModel) {
-        if (!ngModel) {
-          return;
-        }
-        if (ngModel.$modelValue.length > 3) {
-          ngModel.$formatters.unshift(function (a) {
-            return $filter('number')(ngModel.$modelValue)
-          });
-        }
+  // .directive('format', ['$filter', function ($filter) {
+  //   //Does formats the numbers but causes issues with number convertor 'k' and 'm'
+  //   return {
+  //     require: 'ngModel',
+  //     link: function (scope, elem, attrs, ngModel) {
+  //       if (!ngModel) {
+  //         return;
+  //       }
+  //       if (ngModel.$modelValue.length > 3) {
+  //         ngModel.$formatters.unshift(function (a) {
+  //           return $filter('number')(ngModel.$modelValue)
+  //         });
+  //       }
 
-        ngModel.$parsers.unshift(function (viewValue) {
-          var plainNumber = viewValue.replace(/[^\d|\-+|\.+]/g, '');
-          elem.val($filter('number')(plainNumber));
-          return plainNumber;
-        });
-      }
-    }
-  }])
+  //       ngModel.$parsers.unshift(function (viewValue) {
+  //         var plainNumber = viewValue.replace(/[^\d|\-+|\.+]/g, '');
+  //         elem.val($filter('number')(plainNumber));
+  //         return plainNumber;
+  //       });
+  //     }
+  //   }
+  // }])
